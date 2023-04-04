@@ -20,9 +20,17 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- Telescope
+    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find in current file"},
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+  },
+  i = {
+    ["<C-l>"] = {"<right>", desc = "Cursor right"},
+    ["<C-h>"] = {"<left>", desc = "Cursor left"},
+    ["<C-k>"] = {"<up>", desc = "Cursor up"},
+    ["<C-j>"] = {"<down>", desc = "Cursor down"},
   },
 }
