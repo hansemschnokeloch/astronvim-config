@@ -6,7 +6,13 @@ return {
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    wrap = false, -- sets vim.opt.wrap
+    wrap = true, -- sets vim.opt.wrap
+    scrolloff = 15, -- Number of lines to keep above and below the cursor
+    shiftwidth = 4, -- Number of space inserted for indentation
+    tabstop = 4, -- Number of space in a tab
+    showtabline = 2, -- always display tabline
+    writebackup = false, -- Disable making a backup before overwriting a file
+    numberwidth = 4, -- minimal number of columns to use for the line number {default 4}
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

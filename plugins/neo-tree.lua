@@ -1,7 +1,10 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = function(_, opts)
-    opts.window.width = 40
+    opts.window.width = 60
+    opts.window.mappings = {
+      ["s"] = "prev_source",
+    }
     opts.default_component_configs.indent = { indent_size = 2, padding = 1 }
     opts.event_handlers = {
       {
@@ -10,6 +13,11 @@ return {
           --auto close
           require("neo-tree").close_all()
         end,
+      },
+    }
+    opts.filesystem = {
+      filtered_items = {
+        visible = true,
       },
     }
   end,

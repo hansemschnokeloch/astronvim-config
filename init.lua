@@ -39,6 +39,7 @@ return {
           "twig",
           "html",
           "lua",
+          "nix",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -57,6 +58,8 @@ return {
       -- "pyright"
       "intelephense",
       "lua_ls",
+      -- "nix_ls",
+      "bashls",
     },
   },
 
