@@ -58,8 +58,18 @@ return {
       -- "pyright"
       "intelephense",
       "lua_ls",
-      -- "nix_ls",
-      "bashls",
+      "nil_ls",
+      -- "bashls",
+      "tailwindcss",
+    },
+    config = {
+      tailwindcss = function()
+        return {
+          cmd = {
+            "tailwindcss",
+          },
+        }
+      end,
     },
   },
 
@@ -74,10 +84,43 @@ return {
     },
   },
 
+  -- plugins = {
+  --
+  --   { -- override nvim-cmp plugin
+  --     "hrsh7th/nvim-cmp",
+  --     -- override the options table that is used in the `require("cmp").setup()` call
+  --     opts = function(_, opts)
+  --       -- opts parameter is the default options table
+  --       -- the function is lazy loaded so cmp is able to be required
+  --       local cmp = require "cmp"
+  --       -- modify the sources part of the options table
+  --       opts.sources = cmp.config.sources {
+  --         -- { name = "copilot", priority = 1000 },
+  --         { name = "nvim_lsp", priority = 1000 },
+  --         { name = "luasnip", priority = 750 },
+  --         { name = "buffer", priority = 500 },
+  --         { name = "path", priority = 250 },
+  --       }
+  --
+  --       -- return the new table to be used
+  --       return opts
+  --     end,
+  --   },
+  -- },
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      desc = "Disable automatic comment continuation for PHP",
+      pattern = "php",
+      callback = function() vim.opt.formatoptions:remove "r" end,
+    })
+    -- vim.filetype.add {
+    --   extension = {
+    --     twig = "twig",
+    --   },
+    -- }
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
@@ -89,6 +132,5 @@ return {
     --   pattern = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
-    -- }
   end,
 }
