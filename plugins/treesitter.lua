@@ -2,6 +2,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
     -- ensure_installed = { "lua" },
-    ensure_installed = { "php", "nix", "html", "twig" },
+    ensure_installed = { "php", "nix", "html", "twig", "javascript" },
   },
 }

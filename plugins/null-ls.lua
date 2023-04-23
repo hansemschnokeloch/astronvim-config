@@ -10,9 +10,9 @@ return {
     config.sources = {
       -- Set a formatter
       null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.nixpkgs_fmt,
+      null_ls.builtins.formatting.nixpkgs_fmt,
       -- null_ls.builtins.formatting.twigcs,
-      -- null_ls.builtins.diagnostics.prettier,
+      null_ls.builtins.formatting.prettier,
       -- null_ls.builtins.formatting.phpcsfixer,
     }
     return config -- return final config table

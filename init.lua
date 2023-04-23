@@ -37,7 +37,9 @@ return {
           -- "go",
           "php",
           "twig",
+          "html.twig",
           "html",
+          "twig",
           "lua",
           "nix",
         },
@@ -57,12 +59,27 @@ return {
     servers = {
       -- "pyright"
       "intelephense",
+      "eslint",
       "lua_ls",
       "nil_ls",
       -- "bashls",
       "tailwindcss",
     },
     config = {
+      eslint = function()
+        return {
+          filetypes = {
+            "twig",
+            "html.twig",
+            "php",
+            "javascript",
+          },
+          cmd = {
+            "eslint",
+          },
+          root_dir = require("lspconfig.util").root_pattern "composer.json",
+        }
+      end,
       tailwindcss = function()
         return {
           cmd = {
@@ -116,11 +133,11 @@ return {
       pattern = "php",
       callback = function() vim.opt.formatoptions:remove "r" end,
     })
-    -- vim.filetype.add {
-    --   extension = {
-    --     twig = "twig",
-    --   },
-    -- }
+    vim.filetype.add {
+      extension = {
+        twig = "html.twig",
+      },
+    }
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
