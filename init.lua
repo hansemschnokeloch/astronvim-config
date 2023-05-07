@@ -135,7 +135,7 @@ return {
     })
     vim.filetype.add {
       extension = {
-        twig = "html.twig",
+        twig = "twig.html",
       },
     }
     -- Set up custom filetypes
