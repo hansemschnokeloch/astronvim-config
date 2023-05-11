@@ -37,7 +37,7 @@ return {
           -- "go",
           "php",
           "twig",
-          "html.twig",
+          "htmldjango",
           "html",
           "twig",
           "lua",
@@ -70,7 +70,7 @@ return {
         return {
           filetypes = {
             "twig",
-            "html.twig",
+            "htmldjango",
             "php",
             "javascript",
           },
@@ -135,7 +135,7 @@ return {
     })
     vim.filetype.add {
       extension = {
-        twig = "twig.html",
+        twig = "htmldjango",
       },
     }
     -- Set up custom filetypes
