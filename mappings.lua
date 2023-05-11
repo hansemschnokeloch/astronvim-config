@@ -24,6 +24,9 @@ return {
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     -- Telescope
     ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find in current file" },
+    -- Move cursor in soft wrapped lines
+    ["j"] = { "gj" },
+    ["k"] = { "gk" },
   },
   t = {
     -- setting a mapping to false will disable it
