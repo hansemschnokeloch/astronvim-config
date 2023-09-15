@@ -23,8 +23,8 @@ return {
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
-    virtual_text = true,
-    underline = true,
+    virtual_text = false, -- disabled in favor of lsp lines
+    underline = false,
   },
 
   lsp = {
@@ -32,14 +32,13 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true,     -- enable or disable format on save globally
+        enabled = false,    -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
           "php",
           "twig",
           "htmldjango",
           "html",
-          "twig",
           "lua",
           "nix",
         },
@@ -59,18 +58,18 @@ return {
     servers = {
       -- "pyright"
       "intelephense",
+      -- "phpactor",
       "eslint",
       "lua_ls",
       "nil_ls",
       -- "bashls",
-      "tailwindcss",
     },
     config = {
       eslint = function()
         return {
           filetypes = {
             "twig",
-            "htmldjango",
+            "html",
             "php",
             "javascript",
           },
@@ -80,13 +79,6 @@ return {
           root_dir = require("lspconfig.util").root_pattern "composer.json",
         }
       end,
-      -- tailwindcss = function()
-      --   return {
-      --     cmd = {
-      --       "tailwindcss",
-      --     },
-      --   }
-      -- end,
     },
   },
 
@@ -101,29 +93,30 @@ return {
     },
   },
 
-  -- plugins = {
-  --
-  --   { -- override nvim-cmp plugin
-  --     "hrsh7th/nvim-cmp",
-  --     -- override the options table that is used in the `require("cmp").setup()` call
-  --     opts = function(_, opts)
-  --       -- opts parameter is the default options table
-  --       -- the function is lazy loaded so cmp is able to be required
-  --       local cmp = require "cmp"
-  --       -- modify the sources part of the options table
-  --       opts.sources = cmp.config.sources {
-  --         -- { name = "copilot", priority = 1000 },
-  --         { name = "nvim_lsp", priority = 1000 },
-  --         { name = "luasnip", priority = 750 },
-  --         { name = "buffer", priority = 500 },
-  --         { name = "path", priority = 250 },
-  --       }
-  --
-  --       -- return the new table to be used
-  --       return opts
-  --     end,
-  --   },
-  -- },
+  plugins = {
+
+    -- {
+    --   -- override nvim-cmp plugin
+    --   "hrsh7th/nvim-cmp",
+    --   -- override the options table that is used in the `require("cmp").setup()` call
+    --   opts = function(_, opts)
+    --     -- opts parameter is the default options table
+    --     -- the function is lazy loaded so cmp is able to be required
+    --     local cmp = require "cmp"
+    --     -- modify the sources part of the options table
+    --     opts.sources = cmp.config.sources {
+    --       -- { name = "copilot", priority = 1000 },
+    --       { name = "nvim_lsp", priority = 1000 },
+    --       { name = "luasnip",  priority = 750 },
+    --       { name = "buffer",   priority = 500 },
+    --       { name = "path",     priority = 250 },
+    --     }
+    --
+    --     -- return the new table to be used
+    --     return opts
+    --   end,
+    -- },
+  },
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -133,11 +126,11 @@ return {
       pattern = "php",
       callback = function() vim.opt.formatoptions:remove "r" end,
     })
-    vim.filetype.add {
-      extension = {
-        twig = "htmldjango",
-      },
-    }
+    -- vim.filetype.add {
+    --   extension = {
+    --     twig = "twig.html",
+    --   },
+    -- }
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {

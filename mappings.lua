@@ -17,6 +17,8 @@ return {
       end,
       desc = "Pick to close",
     },
+    ["<C-l>"] = { "<cmd>bnext<cr>", desc = "Next tab" },
+    ["<C-h>"] = { "<cmd>bprev<cr>", desc = "Previous tab" },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
@@ -27,6 +29,7 @@ return {
     -- Move cursor in soft wrapped lines
     ["j"] = { "gj" },
     ["k"] = { "gk" },
+    -- Buffer navigation
   },
   t = {
     -- setting a mapping to false will disable it
